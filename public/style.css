@@ -1,0 +1,111 @@
+/* style.css - visual em tons de rosa e layout delicado */
+
+/* reset simples */
+* { 
+    box-sizing: border-box; 
+}
+html, body { 
+    height: 100%; 
+    margin: 0; 
+    font-family: "Georgia", serif; 
+    color: #422; }
+
+/* header */
+.site-header {
+  background-image: url('IMG/acervo2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+.site-header .logo h1 {
+  margin: 0;
+  color: #cbc5ca;
+  font-size: 24px;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+}
+.site-header .logo .subtitle { color: #ddb8d2; font-size: 12px; }
+
+/* nav links */
+.nav-link { 
+    color: #5a3b3b; 
+    font-weight: 600; 
+}
+.nav-link:hover { 
+    color: #ddb8d2; 
+    background: rgba(255,255,255,0.15); 
+    border-radius: 6px; 
+    padding: 6px 8px; 
+}
+
+/* seção títulos */
+.section-title {
+  font-family: Georgia, serif;
+  color: #5a2f33;
+  margin-bottom: 12px;
+  font-size: 22px;
+}
+
+/* carousel slide */
+.destaque-slide { padding: 16px; }
+.destaque-img { max-width: 220px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0); 
+}
+
+/* cores personalizadas */
+.btn-rosa { background: #c99298; color: white; border: none; }
+.btn-rosa:hover { background: #b77b84; color: white; }
+
+.btn-outline-rosa { border: 1px solid #d7a9ad; color: #5a2f33; }
+.btn-outline-rosa:hover { background: #f8e8e9; }
+
+/* cards */
+.card-rosa { 
+    background: rgba(255, 240, 240, 0.9); 
+    border: 1px solid #d2a8aa; 
+    border-radius: 10px; 
+}
+.card-rosa .card-img-top { 
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px; 
+    height: 260px; 
+    object-fit: cover; 
+}
+
+/* home - grid responsiveness (bootstrap classes used) */
+
+/* about student */
+.about-student { 
+    background: rgba(249, 240, 240, 0.8); 
+    border: 1px solid #e7cfcf; 
+}
+
+/* detalhes page */
+.bg-light-rosa { 
+    background: rgba(255, 245, 245, 0.8); 
+    border: 1px solid #e3c7c8; 
+}
+.detalhe-imagem-main 
+{ max-width: 100%; 
+    border-radius: 8px; 
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06); 
+}
+
+/* cards of fotos vinculadas */
+.card-rosa .card-img-top { height: 140px; object-fit: cover; }
+
+/* footer */
+.footer {
+  background: linear-gradient(180deg, rgba(236,210,210,0.12), rgba(244,231,231,0.2));
+  color: #6b3f40;
+  border-top: 1px solid rgba(200,160,160,0.2);
+}
+
+/* mobile adjustments */
+@media (max-width: 767px) {
+  .card-rosa .card-img-top { height: 200px; }
+  .destaque-img { max-width: 160px; }
+  .site-header { padding: 12px 8px; }
+  .site-header .logo h1 { font-size: 18px; }
+}
