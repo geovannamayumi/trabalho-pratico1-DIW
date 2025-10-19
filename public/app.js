@@ -1,10 +1,3 @@
-/* app.js
-   Estrutura de dados (JSON-like) e funções para:
-   - montar carousel de destaques
-   - montar cards na home
-   - montar página de detalhes (a partir de ?id=)
-*/
-
 const acervo = [
   {
     id: 1,
@@ -418,14 +411,12 @@ const acervo = [
 
 ];
 
-/* ---------- Helpers ---------- */
-
 function formatarTexto(texto, max = 140) {
   if (!texto) return "";
   return texto.length > max ? texto.slice(0, max - 3) + "..." : texto;
 }
 
-/* ---------- Home: Carousel de destaques ---------- */
+// Home: Carousel de destaques 
 
 function montarCarouselDestaques() {
   const destaques = acervo.filter(i => i.destaque);
@@ -468,7 +459,7 @@ function montarCarouselDestaques() {
   });
 }
 
-/* ---------- Home: Cards de todos os itens ---------- */
+// Home: Cards de todos os itens 
 
 function montarCards() {
   const container = document.getElementById('cards-container');
@@ -495,10 +486,8 @@ function montarCards() {
   });
 }
 
-/* ---------- Detalhes: montar conteúdo da página de detalhes ---------- */
-
 function montarDetalhes() {
-  // pega id da query string
+  // pega id
   const params = new URLSearchParams(window.location.search);
   const idParam = parseInt(params.get('id'), 10);
   if (Number.isNaN(idParam)) return;
@@ -515,7 +504,7 @@ function montarDetalhes() {
     return;
   }
 
-  // Monta o bloco principal (imagem + meta + conteúdo)
+  // bloco principal 
   container.innerHTML = `
     <div class="row align-items-start p-3 rounded bg-light-rosa">
       <div class="col-md-4 text-center">
@@ -534,7 +523,7 @@ function montarDetalhes() {
     </div>
   `;
 
-  // Monta fotos vinculadas (entidade secundária)
+  // fotos vinculadas
   if (fotosContainer) {
     fotosContainer.innerHTML = '';
     if (Array.isArray(item.fotos) && item.fotos.length > 0) {
@@ -557,20 +546,19 @@ function montarDetalhes() {
   }
 }
 
-/* ---------- Inicialização (determine qual página está ativa) ---------- */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // se existir o carousel, estamos na home
+  // se existir o carrosel, esta na home
   if (document.getElementById('destaqueCarousel')) {
     montarCarouselDestaques();
   }
 
-  // se existir container de cards, montar
+  // se existir cards, monta
   if (document.getElementById('cards-container')) {
     montarCards();
   }
 
-  // se estivermos na página de detalhes
+  // se estiver em detalhes
   if (document.getElementById('detalhes-container')) {
     montarDetalhes();
   }
